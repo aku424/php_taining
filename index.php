@@ -1,4 +1,12 @@
-
+<!-- php -->
+<?php 
+  $product =[
+    "name" => "アボカド",
+    "price" => 230,
+    "image" => "./img/image_1.jpg"
+  ];
+?>
+<!-- html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +21,10 @@
       <h1 class="title">DailyTrial Shopping</h1>
       <div class="cards-container">
         <div class="card">
-          <img class="card-image" src="https://dnbz0c2oupsw6.cloudfront.net/bcekt8ctzrsfdj1gsus49v9tnhqu" alt="">
-          <p class="card-title">ミネラルウォーター</p>
+          <img class="card-image" src="<?php echo $product["image"]?>" alt="">
+          <p class="card-title"><?php echo $product["name"]."円" ?></p>
           <div class="flex justify-between">
-            <p class="card-price">230円</p>
+            <p class="card-price"><?php echo $product["price"] ?></p>
             <input min="0" class="item-number" type="number" value="0">
           </div>
         </div>
