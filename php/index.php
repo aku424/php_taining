@@ -2,6 +2,8 @@
 <?php require_once "products.php";?>
 <!-- functions.php -->
 <?php require_once "functions.php";?>
+<!-- carts.php
+<?php require_once "carts.php";?> -->
 <!-- html -->
 <!DOCTYPE html>
 <html lang="en">
