@@ -1,5 +1,7 @@
 <!-- products.php -->
-<?php require_once "products.php"?>
+<?php require_once "products.php";?>
+<!-- functions.php -->
+<?php require_once "functions.php";?>
 <!-- html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +19,9 @@
         <?php foreach($products as $product): ?>
           <div class="card">
               <img class="card-image" src="<?php echo $product["image"]?>" alt="">
-              <p class="card-title"><?php echo $product["name"]."円" ?></p>
+              <p class="card-title"><?php echo $product["name"] ?></p>
               <div class="flex justify-between">
-                <p class="card-price"><?php echo $product["price"] ?></p>
+                <p class="card-price"><?php echo calPriceIncludedTax($product["price"]) ?></p>
                 <input min="0" class="item-number" type="number" value="0">
               </div>
             </div>
