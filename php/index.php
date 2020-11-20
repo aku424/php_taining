@@ -2,6 +2,11 @@
 <?php require_once "products.php";?>
 <!-- functions.php -->
 <?php require_once "functions.php";?>
+<!-- classes/product.php -->
+<?php
+  require_once '../classes/product.php';
+  $banana = new product ("banana");
+?>
 <!-- html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +20,7 @@
   <div class="container">
     <form id="cart" method="post" action="carts.php">
       <div class="app-container">
-        <h1 class="title">DailyTrial Shopping</h1>
+        <h1 class="title">DailyTrial Shopping <?php echo $banana->getName(); ?></h1>
         <div class="cards-container">
           <?php foreach($products as $product): ?>
             <div class="card">
