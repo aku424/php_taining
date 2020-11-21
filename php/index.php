@@ -1,7 +1,5 @@
 <!-- products.php -->
 <?php require_once "products.php";?>
-<!-- functions.php -->
-<?php require_once "functions.php";?>
 
 
 <!-- html -->
@@ -24,7 +22,7 @@
                 <img class="card-image" src="<?php echo $product->getImage();?>" alt="">
                 <p class="card-title"><?php echo $product->getName(); ?></p>
                 <div class="flex justify-between">
-                  <p class="card-price"><?php echo calPriceIncludedTax($product->getPrice()) ?></p>
+                  <p class="card-price"><?php echo $product->displayPrice(); ?></p>
                   <input name="<?php echo $product->getId();?>" min="0" class="item-number" type="number" value="0">
                 </div>
               </div>

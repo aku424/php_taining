@@ -21,6 +21,14 @@
         public function getPrice(){
             return $this -> price;
         }
+        private function calPriceIncludedTax(){
+            $tax = 1.1;
+            return $this -> price * $tax;
+        }
+        public function displayPrice(){
+            $price = $this ->calPriceIncludedTax();
+            return $price."円";
+        }
         public function getId(){
             return $this -> id;
         }

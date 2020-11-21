@@ -1,11 +1,10 @@
 <!-- products.php -->
 <?php
     require_once "products.php";
+    require_once "../classes/cart.php";
 
-    $sum =0;
     foreach ($products as $product){
-        $price = $product->getPrice() * $_POST[$product->getId()];
-        $sum = $sum + $price;
+        Cart::add($product,$_POST[$product->getId()]);
     }
 
 ?>
@@ -29,16 +28,18 @@
                                 <img class="cart-item-img" src="<?php echo $product->getImage(); ?>">
                                 <div class="cart-item-detail">
                                     <p class="cart-item-title"><?php echo $product-> getName(); ?></p>
-                                    <p><?php echo $_POST[$product->getId()]; ?> ×<?php echo $product-> getPrice()."円"; ?></p>
+                                    <p><?php echo $_POST[$product->getId()]; ?> ×<?php echo $product->displayPrice(); ?></p>
                                 </div>
                             </div>
                         </div>
                     <?php endif;?>
                 <?php endforeach;?>
             </div>
-            <div class="btn-footer bg-gray">
-                <input class="checkout-btn" type="submit" value="<?php echo $sum."円を決済する" ?>">
-            </div>
+            <form action="payment.php">
+                <div class="btn-footer bg-gray">
+                    <input class="checkout-btn" type="submit" value="<?php echo Cart::getTotalPrice()."円を決済する" ?>">
+                </div>
+            </form>
         </div>
     </div>
 </body>
